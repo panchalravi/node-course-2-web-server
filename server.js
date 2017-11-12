@@ -19,10 +19,11 @@ app.use((req, res, next) => {
     });
     next();
 });
-
+/*
 app.use((req, res, next) => {
     res.render('maintenance.hbs');
 });
+*/
 
 app.use(express.static(__dirname + '/public'));
 
@@ -46,7 +47,11 @@ app.get('/about', (req, res) => {
         pageTitle: 'About Page!'
     });
 });
-
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects'
+    });
+});
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'Unable to find page'
